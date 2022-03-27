@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.ezen.spg16.dao.IBoardDao">
+
+	<resultMap  id="boardMap" type="java.util.HashMap"></resultMap>
+	<resultMap  id="boardMap2" type="java.util.HashMap"></resultMap>
+	
+	<select id="selectBoard" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ CALL selectBoard(
+			#{startNum}, 
+			#{endNum},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=boardMap }
+		) }
+	</select>
+	
+	<select  id="getAllCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllCount(
+			#{ cnt, mode=OUT, jdbcType=INTEGER }
+		) }
+	</select>
+	
+	
+	<update  id="plusReadCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL plusReadCount(	#{ num } ) }
+	</update>
+	
+	<select id="boardView" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ CALL boardView(
+			#{num} ,
+			#{ref_cursor1, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=boardMap },
+			#{ref_cursor2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=boardMap2 }
+		) }
+	</select>
+	
+	
+	<update  id="insertReply" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL insertReply(	#{ boardnum }, #{ userid }, #{ content } ) }
+	</update>
+	
+	
+	<delete  id="deleteReply" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL deleteReply(	#{ replynum } ) }
+	</delete>
+	
+	
+	<select id="getBoard" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ CALL getBoard(
+			#{num} ,
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=boardMap }
+		) }
+	</select>
+	
+	
+	<update  id="updateBoard" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL updateBoard(	
+			#{ num }, #{ userid }, #{ pass }, #{ email }, #{ title }, #{ content }, #{ imgfilename } 
+		) }
+	</update>
+	
+	
+	<delete  id="removeBoard" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL removeBoard(	#{ num }   ) }
+	</delete>
+	
+	
+	
+	<insert  id="insertBoard" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL insertBoard(	
+			#{ userid }, #{ pass }, #{ email }, #{ title }, #{ content }, #{ imgfilename } 
+		) }
+	</insert>
+</mapper>
+
+
+
+
+
+
+

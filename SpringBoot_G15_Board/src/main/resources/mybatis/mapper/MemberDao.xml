@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.ezen.spg15.dao.IMemberDao">
+
+	<select id="getMember" resultType="com.ezen.spg15.dto.MemberVO">
+		select * from member where userid=#{param1}
+	</select>
+	
+	<insert id="insertMember" parameterType="com.ezen.spg15.dto.MemberVO">
+		insert into member( userid, pwd, name, email, phone)
+		values( #{userid}, #{pwd}, #{name}, #{email}, #{phone} )
+	</insert>
+	
+	<update id="updateMember" parameterType="com.ezen.spg15.dto.MemberVO">
+		update member set pwd=#{pwd}, name=#{name}, email=#{email}, phone=#{phone} 	
+		where userid=#{userid}	
+	</update>
+
+	
+</mapper>

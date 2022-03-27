@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.ezen.spm17.dao.IOrderDao">
+
+	<resultMap  id="orderMap" type="java.util.HashMap"></resultMap>
+	
+	<insert id="insertOrder" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ CALL insertOrder( 
+			#{id},
+			#{oseq, mode=OUT, jdbcType=INTEGER}
+		) }
+	</insert>
+	
+	
+	<select id="listOrderByOseq" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  CALL listOrderByOseq( 
+			#{oseq},
+			#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=orderMap}
+		)  }
+	</select>
+	
+	
+	<select id="listOrderByIdIng" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ CALL listOrderByIdIng( 
+			#{id},
+			#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=orderMap}
+		) }
+	</select>
+	
+	
+	<select id="listOrderByIdAll" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ CALL listOrderByIdAll( 
+			#{id},
+			#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=orderMap}
+		) }
+	</select>
+	
+	
+	<insert id="insertOrderOne" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ CALL insertOrderOne( 
+			#{id},  #{pseq},  #{quantity},
+			#{oseq, mode=OUT, jdbcType=INTEGER}
+		) }
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
