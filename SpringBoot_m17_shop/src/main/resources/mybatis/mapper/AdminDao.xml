@@ -32,6 +32,13 @@
 		)  }
 	</select>
 	
+	
+	<insert id="insertProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL insertProduct(
+			#{name}, #{kind}, #{price1}, #{price2}, #{price3}, #{content}, #{image}
+		) }
+	</insert>
+	
 </mapper>
 
 

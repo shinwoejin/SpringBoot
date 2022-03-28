@@ -12,6 +12,7 @@ function go_mov(){
 function go_save(){
 	var theForm = document.frm;
 	if (theForm.name.value == '') { 	
+	//alert('상품명을 입력하세요');
 		document.getElementById('msg').innerHTML='상품명을 입력하세요';
 		theForm.name.focus();	
 	} else if (theForm.price1.value == '') {

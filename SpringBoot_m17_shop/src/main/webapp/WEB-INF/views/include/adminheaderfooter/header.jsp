@@ -33,7 +33,9 @@ $(function(){
 	            	//동적으로 div태그 달아주기.
 	            	$("#filename").empty();
 	            	$("#filename").append("<div>"+data.FILENAME+"</div>");
-	            	$("#image").val(data.FILENAME);
+	            	//$("#image").val(data.FILENAME);
+	            	${"filename"}.append(
+	            			"<img src='product_images/" data.FILENAME+"' height='150'/>");
 	            }
 	        },
 	        error: function() {

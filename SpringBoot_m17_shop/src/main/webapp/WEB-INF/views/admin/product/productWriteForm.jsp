@@ -22,7 +22,7 @@
     <!-- <tr><th>상품이미지</th><td width="343" colspan="5"><input type="file" name="image"></td></tr>-->
     
     
-    <tr><th>상품이미지</th><td width="343" colspan="5">
+    <tr height="200"><th>상품이미지</th><td width="343" colspan="5" style="vertical-align:top;">
    		<input type="hidden" name="image" id="image">
 	</td></tr>
     
@@ -32,10 +32,11 @@
 <input class="btn" type="button" value="취소" onClick="go_mov()"><br/>
 <div id="msg" ></div>
 </form> 
-
+<div style="position:relative; top:-200px;">
 <form name="fromm" id="fileupForm" method="post" enctype="multipart/form-data">
 			<input type="file" name="fileimage"><input type="button" id="myButton" value="추가">
 </form>
+</div>
 <div id="filename"></div>
 
 </article>

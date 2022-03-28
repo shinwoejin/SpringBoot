@@ -22,4 +22,8 @@ public class AdminService {
 	public void getProductList(HashMap<String, Object> paramMap) {
 		adao.getProductList( paramMap );		
 	}
+	public void insertProduct(HashMap<String, Object> paramMap) {
+		adao.getInsertProduct( paramMap );
+		
+	}
 }
